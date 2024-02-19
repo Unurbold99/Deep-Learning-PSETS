@@ -28,7 +28,7 @@ if image_file is not None:
     pred, pred_idx, probs = learn_inf.predict(img)
 
     with col1:
-        st.markdown(f"""### Predicted animal: {pred.capitalize()}""")
+        st.markdown(f"""### Predicted afood: {pred.capitalize()}""")
         st.markdown(f"""### Probability: {round(max(probs.tolist()), 3) * 100}%""")
     with col2:
         st.image(img, width=300)
