@@ -11,7 +11,7 @@ st.markdown("""### Upload your image here""")
 image_file = st.file_uploader("Image Uploader", type=["png","jpg","jpeg"])
 
 ## Model Loading Section
-model_path = path("export.pkl")
+model_path = Path("export.pkl")
 
 if not model_path.exists():
     with st.spinner("Downloading model... this may take awhile! \n Don't stop it!"):
