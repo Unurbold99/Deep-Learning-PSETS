@@ -19,8 +19,6 @@ if not model_path.exists():
         output = 'export.pkl'
         gdown.download(url, output, quiet=False)
     learn_inf = load_learner('export.pkl')
-else:
-    learn_inf = load_learner('export.pkl')
 
 col1, col2 = st.columns(2)
 if image_file is not None:
