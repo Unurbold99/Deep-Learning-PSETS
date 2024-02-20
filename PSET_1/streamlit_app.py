@@ -28,7 +28,15 @@ if image_file is not None:
     pred, pred_idx, probs = learn_inf.predict(img)
 
     with col1:
-        st.markdown(f"""### Predicted afood: {pred.capitalize()}""")
+        st.markdown(f"""### Predicted food: {pred.capitalize()}""")
+        if pred == 'бууз':
+            st.write("Cornerstone of Mongolia's cuisine, a form of steamed dumplings that primarily is made of lamb and is often the main dish during Mongolia's holidays")
+        elif pred == 'хуушуур':
+            st.write("A deep fried slab of dough that has ground meat usually lamb inside it")
+        elif pred == 'цуйван':
+            st.write("A dish that is stir fried which includes doughy noodles with veggies and meat")
+        elif pred == 'нийслэл салат':
+            st.write("A salad that is rich in its flavor and calories, it includes potatoes, eggs, pickles, ham, carrots, corn and peas")
         st.markdown(f"""### Probability: {round(max(probs.tolist()), 3) * 100}%""")
     with col2:
         st.image(img, width=300)
