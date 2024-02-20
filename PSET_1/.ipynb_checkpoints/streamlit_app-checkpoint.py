@@ -26,11 +26,6 @@ if image_file is not None:
     img = PILImage.create(image_file)
     pred, pred_idx, probs = learn_inf.predict(img)
 
-    st.image(img, width=300, caption='Uploaded Image', use_column_width='always', output_format='auto')
-
-    probability = round(max(probs.tolist()) * 100, 2)
-    probability_color = 'red' if probability < 50 else ('yellow' if probability < 80 else 'green')
-
     st.markdown(f"""### Predicted food: {pred.capitalize()}""")
     if pred == 'бууз':
         st.write("Cornerstone of Mongolia's cuisine, a form of steamed dumplings that primarily is made of lamb and is often the main dish during Mongolia's holidays")
@@ -41,4 +36,8 @@ if image_file is not None:
     elif pred == 'нийслэл салат':
         st.write("A salad that is rich in its flavor and calories, it includes potatoes, eggs, pickles, ham, carrots, corn and peas")
 
+    probability = round(max(probs.tolist()) * 100, 2)
+    probability_color = 'red' if probability < 50 else ('yellow' if probability < 80 else 'green')
     st.markdown(f"""### Probability: <span style='color: {probability_color};'>{probability}%</span>""", unsafe_allow_html=True)
+
+    st.image(img, width=200, caption='Uploaded Image', use_column_width='always', output_format='auto')
